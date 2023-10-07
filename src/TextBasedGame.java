@@ -10,7 +10,8 @@ public class TextBasedGame {
     public static void main(String[] args) { // runs firstroom
 
         scan = new Scanner(System.in);
-        introduction();
+        //introduction();
+        ending();
 
     }
 
@@ -65,7 +66,7 @@ public class TextBasedGame {
         println("\n(Teleporting to the beach...)\n" + "Reminder: press W to move straight, press D to move right, press A to move left, press S to move back.\n\n" + "Dora: Hola soy Dora!\n" + "Boots: And I'm boots! We're at the beach with our friends! We love building sandcastles and playing volleyball! Eating paletas and collecting seashells!\n" + "Mermaid: ¡Ay no! Help Help!\n" + "Dora: Someone needs help, let's go Boots, turn to the left!" );
         userInput = scan.nextLine();
 
-        while (!userInput.toLowerCase().equals("d")) {
+        while (!userInput.toLowerCase().equals("a")) {
             println("Sorry...that's the wrong side. Please try again.");
             userInput = scan.nextLine();
         }
@@ -141,58 +142,49 @@ public class TextBasedGame {
         back();
         userInput = scan.nextLine();
 
-        if (userInput.equals("d")) {
+        while (true) {
 
-            println("Dora: You chose to go right.");
-            println("Boots: There are more blue lobsters! It looks like we've been surrounded by blue lobsters...");
-            println("blue lobsters: pinchy pinchy...");
-            println("(You have been killed by blue lobsters...) Press 1 to go back and choose again.)");
-            userInput = scan.nextLine();
+            if (userInput.equals("d")) {
 
-            if (userInput.equals("1")) {
+                println("You chose to go right.");
+                println("Boots: There are more blue lobsters! It looks like we've been surrounded by blue lobsters...");
+                println("blue lobsters: pinchy pinchy...");
+                println("(You have been killed by blue lobsters...) Press 1 to go back and choose again.)");
+                userInput = scan.nextLine();
 
-                back();
+                if (userInput.equals("1")) {
+
+                    back();
+
+                }
+
+            } else if (userInput.equals("w")) {
+
+                println("Dora: You chose to go straight.");
+                println("Boots: Uh oh! This is a dead end... (You look back and see more blue lobsters)");
+                println("blue lobsters: pinchy pinchy...");
+                println("(You have been killed by blue lobsters...) Press 1 to go back and choose again.)");
+                userInput = scan.nextLine();
+
+                if (userInput.equals("1")) {
+
+                    back();
+
+                }
+
+
+            } else if (userInput.equals("a")) {
+
+                println("Dora: You chose to go left.");
+                println("Boots: Phew that was close!");
+                break;
+
+            } else {
+
+                println("That is not a direction... Try again please");
+                userInput = scan.nextLine();
 
             }
-
-        } else {
-
-            println("That is not a direction... Try again please");
-            userInput = scan.nextLine();
-
-        }
-
-        if (userInput.equals("w")) {
-
-            println("Dora: You chose to go straight.");
-            println("Boots: Uh oh! This is a dead end... (You look back and see more blue lobsters)");
-            println("blue lobsters: pinchy pinchy...");
-            println("(You have been killed by blue lobsters...) Press 1 to go back and choose again.)");
-            userInput = scan.nextLine();
-
-            if (userInput.equals("1")) {
-
-                back();
-
-            }
-
-
-        } else {
-
-            println("That is not a direction... Try again please");
-            userInput = scan.nextLine();
-
-        }
-
-        if (userInput.equals("a")) {
-
-            println("Dora: You chose to go left.");
-            println("Boots: Phew that was close!");
-
-        } else {
-
-            println("That is not a direction... Try again please");
-            userInput = scan.nextLine();
 
         }
 
@@ -249,59 +241,174 @@ public class TextBasedGame {
         println("Backpack: I have the trident, the hammer and the handsaw! What should we use to clear up the path?");
         userInput = scan.nextLine();
 
-        if (userInput.equals("the trident")) {
+        while (true) {
 
-            println("Dora: That's correct! Use your mermaid powers Maribel, aim at the fallen rocks!");
-            println("(The power was great enough to clear up a path) Maribel: Oh look! That's Mermaid Cove! Let's go Let's go!");
 
-        }
+            if (userInput.equals("the trident")) {
 
-        if (userInput.equals("the hammer")) {
+                println("Dora: That's correct! Use your mermaid powers Maribel, aim at the fallen rocks!");
+                println("(The power was great enough to clear up a path) Maribel: Oh look! That's Mermaid Cove! Let's go Let's go!");
+                break;
 
-            println("Boots: I don't think a hammer can break the rocks... please choose again.");
-            back2();
+            } else if (userInput.equals("the hammer")) {
 
-        } else {
-
-            println("That is not a tool from the backpack... Try again please");
-            userInput = scan.nextLine();
-
-        }
-
-        if (userInput.equals("the handsaw")) {
-
-            println("Boots: I don't think a handsaw can break the rocks... please choose again.");
-            back2();
-
-        } else {
-
-            println("That is not a tool from the backpack... Try again please");
-            userInput = scan.nextLine();
-
-        }
-
-        println("Dora: Wait... There are 2 different pathways to mermaid cove, should we turn to the left or turn to the right?");
-        userInput = scan.nextLine();
-
-        if (userInput.equalsIgnoreCase("d")) {
-
-            println("Dora: Correcto!!! Vamos!");
-            println("Maribel: We're almost home!");
-            println("Dora: That's Mermaid Cove? Maravillosa!!!");
-            println("Maribel's Mommy: Oh thank you for taking such good care of Maribel. Muchas gracias...\n" + "(THE END...)\n" + "You have successfully finished game 1, you have to complete all of the games to get a trophy!");
-            finish1 = true;
-
-        } else {
-
-            finish1 = false;
-            while (!userInput.equalsIgnoreCase("d")) {
-                println("Dora: ¡Incorrecto! That's not Mermaid Cove, try again.");
+                println("Boots: I don't think a hammer can break the rocks... please choose again.");
+                back2();
                 userInput = scan.nextLine();
+
+            } else if (userInput.equals("the handsaw")) {
+
+                println("Boots: I don't think a handsaw can break the rocks... please choose again.");
+                back2();
+                userInput = scan.nextLine();
+
+            } else {
+
+                while (!userInput.equalsIgnoreCase("the trident")) {
+
+                    println("That is not a tool from the backpack... Try again please");
+                    userInput = scan.nextLine();
+
+                }
+
             }
 
         }
 
+        println("Dora: Wait... There are 2 pathways to mermaid cove, should we turn to the left or turn to the right?");
+        userInput = scan.nextLine();
+
+        while (!userInput.equalsIgnoreCase("d")) {
+
+            finish1 = false;
+            println("Dora: ¡Incorrecto! That's not Mermaid Cove, try again.");
+            userInput = scan.nextLine();
+
+        }
+
+        println("Dora: Correcto!!! Vamos!");
+        println("Maribel: We're almost home!");
+        println("Dora: That's Mermaid Cove? Maravillosa!!!");
+        println("Maribel's Mommy: Oh thank you for taking such good care of Maribel. Muchas gracias...\n" + "(THE END...)\n" + "You have successfully finished game 1, you have to complete all of the games to get a trophy!\n");
+        finish1 = true;
         onFinishedRoom();
+
+    }
+
+    public static void rescueAdv() {
+        String userInput = scan.nextLine();
+
+        println("\n(Teleporting to the dinosaur era... You are now on a dinosaur, her name is Argentina.)\n" + "Reminder: press W to move straight, press D to move right");
+        println("Dora: Hola soy dora! And this is my friend Diego.");
+        println("Diego: Hola!");
+        println("Together: WEEEEEEE!! (You are are a dinosaur. You have to control the dinosaur to avoid the creatures!)");
+        println("Diego: Woah Wait! Pterosaurs! We don't want to bump into them. Please tell Argentina to go down now!");
+        userInput = scan.nextLine();
+
+        while (true) {
+
+            if (userInput.equals("s")) {
+
+                println("Dora: Si! Abajo!");
+                println("Argentina: Abajo... Going down");
+                println("Diego: Phew! That was close.");
+                break;
+
+            } else if (userInput.equals("w")) {
+
+                println("Dora: Uh oh! Why are we going up, Pterosaurs are getting closer! oh no!");
+                println("(You have been killed by Pterosaurs.)");
+                back3();
+                userInput = scan.nextLine();
+
+            } else if (userInput.equals("d")) {
+
+                println("Dora: Why are we going left? Uh oh.");
+                println("(You have been killed by Pterosaurs.)");
+                back3();
+                userInput = scan.nextLine();
+
+            } else if (userInput.equals("a")) {
+
+                println("Dora: Why are we going right? Uh oh.");
+                println("(You have been killed by Pterosaurs.)");
+                back3();
+                userInput = scan.nextLine();
+
+            }
+
+        }
+
+        println("Dora: Wait what is that?");
+        println("Diego: Oh no snapping turtles");
+        println("(Snap Snap Snap Snap)");
+        println("Dora: Quick! Say up in spanish!");
+        userInput = scan.nextLine();
+        while (!userInput.equalsIgnoreCase("arriba")) {
+            println("Dora: ¡Incorrecto! That's not up in spanish! (Snap snap snap snap)");
+            userInput = scan.nextLine();
+        }
+
+        println("Diego: That was very close! Hey! Great spanish speaking! Hiciste un gran trabajo! Keep up the good work, this adventure is a quick one...");
+        println("Diego: Now we're headed for a giant Pteranodon!!");
+        println("Dora: We can't bump into it!");
+        println("Dora: Please tell Argentina to go down! (use your keyboard)");
+        userInput = scan.nextLine();
+
+        while (true) {
+
+            if (userInput.equals("s")) {
+
+                println("Dora: Si! Abajo!");
+                println("Argentina: Abajo... Going down");
+                println("Diego: Phew! That was close.");
+                break;
+
+            } else if (userInput.equals("w")) {
+
+                println("Dora: Uh oh! Why are we going up, Teranewtons are getting closer! oh no!");
+                println("(You have been killed by Teranewtons.)");
+                back3();
+                userInput = scan.nextLine();
+
+            } else if (userInput.equals("d")) {
+
+                println("Dora: Why are we going left? Uh oh.");
+                println("(You have been killed by Teranewtons.)");
+                back3();
+                userInput = scan.nextLine();
+
+            } else if (userInput.equals("a")) {
+
+                println("Dora: Why are we going right? Uh oh.");
+                println("(You have been killed by Teranewtons.)");
+                back3();
+                userInput = scan.nextLine();
+
+            } else {
+
+                back3();
+                userInput = scan.nextLine();
+
+            }
+
+        }
+
+        println("Dora: What's next? ¿De nuevo? look at all those teeth it's a Tyrannosaurus!");
+        println("Diego: Better go up again what do we say?");
+        userInput = scan.nextLine();
+        while (!userInput.equalsIgnoreCase("arriba")) {
+
+            finish2 = false;
+            println("Dora: ¡Incorrecto! That's not up in spanish! (munch munch munch munch)");
+            userInput = scan.nextLine();
+
+        }
+
+            println("Diego: Thanks for helping us get across!");
+            println("Dora: yeah you're really good at speaking Spanish! Nos vemos la próxima vez!\n");
+            finish2 = true;
+            onFinishedRoom();
 
     }
 
@@ -317,17 +424,34 @@ public class TextBasedGame {
 
     }
 
+    private static void back3() {
 
-    public static void rescueAdv() {
-
-        finish2 = true;
-        onFinishedRoom();
+        println("Dora: Tell Argentina to go down!");
 
     }
 
     public static void ending() {
 
-        println("You have earned a gran trofeo! Good Job!!");
+        String ANSI_YELLOW = "\u001B[33m";
+        String ANSI_REST = "\u001B[0m";
+
+
+        println(ANSI_YELLOW + "You have earned a gran trofeo!" + ANSI_REST + " Good Job!!");
+        println("You have now completed Dora's adventure game! Stay tuned for more games in the future! Thank you for playing...");
+        println("Don't forget to rate this game! Please enter a number between 1 and 10:");
+        int userInt = scan.nextInt();
+
+        if (userInt >= 10) {
+
+            println("Waw...Thank you so much for such high rating!\n");
+
+        } else {
+
+            println("Thank you for your input! I will make sure to improve on it!\n");
+
+        }
+
+        println("Thank you!");
 
     }
 
@@ -336,6 +460,9 @@ public class TextBasedGame {
     }
 
     public static void onFinishedRoom() {
+
+        System.out.println(finish1);
+        System.out.println(finish2);
 
         if (hasCompletedGame()) {
             ending();
@@ -349,7 +476,6 @@ public class TextBasedGame {
         if (num <= max) {
             return true;
         }
-
         return false;
     }
 
