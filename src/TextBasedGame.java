@@ -461,9 +461,6 @@ public class TextBasedGame {
 
     public static void onFinishedRoom() {
 
-        System.out.println(finish1);
-        System.out.println(finish2);
-
         if (hasCompletedGame()) {
             ending();
         } else {
