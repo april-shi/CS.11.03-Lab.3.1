@@ -10,8 +10,8 @@ public class TextBasedGame {
     public static void main(String[] args) { // runs firstroom
 
         scan = new Scanner(System.in);
-        //introduction();
-        ending();
+        introduction();
+
 
     }
 
